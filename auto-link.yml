@@ -1,0 +1,35 @@
+name: Auto Inject SEO Internal Links
+
+on:
+  push:
+    branches:
+      - main  # Atau sesuaikan dengan nama branch utama Bos
+    paths:
+      - 'articles/**.html' # Memantau folder 'articles', jika ada file HTML baru masuk
+      - 'articles/**.md'   # Memantau jika ada file Markdown baru masuk
+
+jobs:
+  inject-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-python: '3.10'
+
+      - name: Run Link Injector Script
+        run: python scripts/link_injector.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add .
+          # Hanya commit jika ada perubahan file setelah disuntik link
+          git diff-index --quiet HEAD || git commit -m "chore: auto-inject SEO internal links [skip ci]"
+          git push
