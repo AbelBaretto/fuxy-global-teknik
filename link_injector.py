@@ -3,17 +3,15 @@ import re
 
 # Peta kata kunci dan link tujuan (Bos Abel bisa tambah atau ubah daftarnya di sini)
 LINK_MAPS = {
-    r"\b(service servo|servo motor|overhaul servo)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-service-servo-motor-servo-drive.html" target="_blank">\\1</a>',
-    r"\b(inverter|vfd|variable frequency drive)\b": '<a href="https://www.fuxiglobalteknik.com/search/label/Inverter" target="_blank">\\1</a>',
-    r"\b(rewinding servo|gulung dinamo|rewinding stator)\b": '<a href="https://www.fuxiglobalteknik.com/search/label/Service%20Servo" target="_blank">\\1</a>',
-    r"\b(penyebab motor servo overheat)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/penyebab-servo-motor-overheat-dan-cara.html" target="_blank">\\1</a>',
-    r"\b(proses rewinding motor servo)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/bedah-proses-rewinding-motor-servo.html" target="_blank">\\1</a>',
-    r"\b(jasa perbaikan ac spindle motor servo)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-perbaikan-ac-spindle-motor-servo.html" target="_blank">\\1</a>',
-    r"\b(jasa repair servo motor)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-maintenance-repair-servo.html" target="_blank">\\1</a>',
-    r"\b(pengadaan unit baru servo motor dan servo drive)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/pengadaan-unit-baru-servo-motor-drive.html" target="_blank">\\1</a>',
-    r"\b(jasa repair inverter industri)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-repair-inverter-industri.html" target="_blank">\\1</a>',
-    r"\b(jasa service serno motor di indonesia)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-service-servo-motor-di-indonesia.html" target="_blank">\\1</a>',
-    r"\b(jasa service serno drive di indonesia)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-service-servo-drive-di-indonesia.html" target="_blank">\\1</a>'
+    # Menembak Link Postingan Utama (Service Servo & Drive)
+    r"\b(service servo|servo motor|overhaul servo|perbaikan servo)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-service-servo-motor-servo-drive.html" target="_blank">\\1</a>',
+    r"\b(servo drive|servo amplifier|modul igbt|error parameter)\b": '<a href="https://www.fuxiglobalteknik.com/2026/06/jasa-service-servo-drive-di-indonesia.html" target="_blank">\\1</a>',
+    
+    # Menembak Label Inverter
+    r"\b(inverter|vfd|variable frequency drive|service inverter)\b": '<a href="https://www.fuxiglobalteknik.com/search/label/Repair%20Inverter" target="_blank">\\1</a>',
+    
+    # Menembak Label Service Servo / Rewinding
+    r"\b(rewinding servo|gulung dinamo|rewinding stator|laser alignment|shaft alignment)\b": '<a href="https://www.fuxiglobalteknik.com/search/label/Service%20Servo" target="_blank">\\1</a>'
 }
 
 TARGET_DIR = 'articles'
